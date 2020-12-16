@@ -1,0 +1,15 @@
+.menu{
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu__item{
+    margin-left: 30px;
+    font-size: 15px;
+}
+
+.menu__item:first-child{
+    margin-left: 0;
+}
