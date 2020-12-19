@@ -1,0 +1,13 @@
+.profile__inner{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.profile__main, 
+.profile__address,
+.profile__company{
+    border: 1px solid black;
+    width: 300px;
+    padding: 10px;
+}

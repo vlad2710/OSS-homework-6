@@ -1,25 +1,21 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { homeFetchData } from "../../../store/Home/actions";
 import "./Home.css";
+import { withHomeComponent } from "../../../hoc/withHomeComponent";
 
 class Home extends Component {
-  componentDidMount() {
-    this.props.fetchData("https://jsonplaceholder.typicode.com/photos");
-  }
 
   render() {
     return (
       <div className="home">
         <div className="container">
           <div className="home__inner">
-            {this.props.data.map((item) => {
+            {this.props.state.data.map((item) => {
               return (
                 <img
                   className="home_img"
-                  key={item.id}
                   src={item.thumbnailUrl}
                   alt=""
+                  key={item.id}
                 />
               );
             })}
@@ -30,18 +26,4 @@ class Home extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    data: state.home.photos,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchData: (url) => {
-      dispatch(homeFetchData(url));
-    },
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default withHomeComponent(Home)
